@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowJs": true,
+        "declaration": false,
+        "outDir": "./bootstrap",
+        "rootDir": "./ts",
+        "removeComments": true,
+        "strict": false,
+        "lib": ["es2018"],
+        "types": ["node", "lodash"],
+        "typeRoots": ["node_modules/@types"],
+        "charset": "utf8"
+    },
+    "files": ["./ts/index.ts"],
+    "include": ["ts/*", "ts/**/*", "ts/**/**/*"],
+    "exclude": ["node_modules"]
+}

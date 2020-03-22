@@ -1,0 +1,27 @@
+version: "3"
+services:
+  node-cinema:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./src:/usr/src"
+    ports:
+      - "8081:80"
+    depends_on:
+      - mariadb-cinema
+      - redis-cinema
+    command: "npm start"
+  mariadb-cinema:
+    image: bitnami/mariadb
+    volumes:
+      - "./database:/bitnami/mariadb"
+    environment:
+      - MARIADB_ROOT_PASSWORD=admin
+      - MARIADB_PASSWORD=admin
+      - MARIADB_USER=admin
+      - MARIADB_DATABASE=cinema_manage
+    ports:
+      - "3307:3306"
+  redis-cinema:
+    image: redis:5.0.6-alpine
